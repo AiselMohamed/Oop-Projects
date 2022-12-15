@@ -1,2 +1,92 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+#include <iostream>
+using namespace std;
+class emp{
+private:
+    int *id;
+    string *name;
+    int *age;
+    string *address;
+    int *sal;
+    int *loan;
+    int static total;
+public:
+    emp(int i,string n,int a,string d,int s ){
+        id =new int;
+        name=new string ;
+        age=new int;
+        address=new string ;
+        sal=new int;
+        loan=new int;
+
+        *id=i;
+        *name=n;
+        *age=a;
+        *address=d;
+        *sal=s;
+        *loan=500;
+
+    }
+    emp(){
+        id =new int;
+        name=new string ;
+        age=new int;
+        address=new string ;
+        sal=new int;
+
+        *loan=500;
+        cout<<"enter information: "<<endl;
+        cin>>*id>>*name>>*age>>*address>>*sal;
+    }
+    void print(){
+        cout<<"id:"<<*id<<endl<<"name:"<<*name<<endl<<"age:"<<*age<<endl<<"address:"<<*address<<endl<<"sal:"<<*sal<<endl;
+    }
+
+    ~emp(){
+        delete id;
+        delete name;
+        delete age;
+        delete address;
+        delete  sal;
+        delete loan;
+    }
+    int getSal(){
+        return *sal;
+    }
+void performLoan(){
+        *sal -= *loan;
+        total += *loan;
+    }
+void addTotal(){
+        *sal += total;
+    }
+
+};
+int emp :: total=0;
+int main() {
+emp a1(2000264,"aisel",20,"a1",20000);
+a1.print();
+cout<<endl;
+emp a2(2000275,"abdullah",20,"a1",30000);
+a2.print();
+cout<<endl;
+emp a3(2000111,"mohamed",20,"a1",40000);
+a3.print();
+cout<<endl;
+cout<< "sum:"<<a1.getSal()+a2.getSal()+a3.getSal()<<endl;
+a1.performLoan();
+cout<<endl;
+a2.performLoan();
+cout<<endl;
+a3.performLoan();
+cout<<endl;
+cout<<endl;
+a1.print();
+cout<<endl;
+a2.print();
+cout<<endl;
+a3.print();
+cout<<endl;
+a1.addTotal();
+cout<<endl;
+a1.print();
+}
