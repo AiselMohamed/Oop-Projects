@@ -51,7 +51,7 @@ void pass(student s[],int size){
         if(*s[i].mark>=50)
             c++;
     }
-    cout<<c<<endl;
+    cout<<"passing student"<<c<<endl;
 }
 int main() {
 const int size=5;
